@@ -29,9 +29,9 @@
     <div id="lock-screen">
         <h2 style="color: #d14d39;">Surprise Loading...</h2>
         <div id="timer"></div>
-        <p>Please wait untill the 17th Madam ❤️</p>
+        <p>Please wait madam until the 17th of the month❤️</p>
         <div class="pass-box">
-            <input type="password" id="password" placeholder="Secret password...">
+            <input type="password" id="password" placeholder="গোপন পাসওয়ার্ড দিন...">
             <button onclick="checkPass()">Unlock</button>
         </div>
     </div>
@@ -86,20 +86,16 @@
                         <button class="btn btn-primary" id="light_candle">Light Candle</button>
                         <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
                         <button class="btn btn-primary" id="story">A message for you</button>
-						<button class="btn btn-primary" id="cake_cut">Let's Cut the Cake</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-	<div class="photo-gallery" id="gallery" style="display:none; text-align:center; margin-top:180px; padding-bottom: 50px;">
-    <h3 style="color: #ef5350; font-family: 'Signika', sans-serif;">Our Special Memories ❤️</h3>
-    <div class="slideshow-container" style="max-width: 300px; margin: auto; position: relative;">
-        <img src="m1.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-        <img src="m2.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display:none;">
-        <img src="m3.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display:none;">
-    </div>
-</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="effect.js"></script>
+
     <script>
         // ১৭ ফেব্রুয়ারি ২০২৬ তারিখটি সেট করা
         var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
@@ -133,7 +129,7 @@
             if (pass === "makfisday") {
                 unlock();
             } else {
-                alert("Nice try,Ultapalta pass diye labh nai pakhi😝");
+                alert("Nice try,ulta palta try kore labh nai pakhi");
             }
         }
 
