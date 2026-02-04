@@ -1,5 +1,4 @@
 body {
-	/*background-color: #FFDAB9;	*/
 	background-color: #000;
 	-webkit-transition:background-color linear 5s;
 	-moz-transition:background-color linear 5s;
@@ -8,28 +7,24 @@ body {
 	transition:background-color linear 5s;
 	overflow-x:hidden;
 }
+
 .container {
 	display: none;
 }
-.peach {
-	background-color: #FFDAB9;
-	
-}
-.peach-after {
-	-webkit-animation:peach_alive linear 8s infinite;
-	-moz-animation:peach_alive linear 8s infinite;
-	-o-animation:peach_alive linear 8s infinite;
-	-ms-animation:peach_alive linear 8s infinite;
-	animation:peach_alive linear 8s infinite;
+
+/* বাটনগুলো শুরুতে লুকিয়ে রাখার মেইন কোড */
+#play, #bannar_coming, #balloons_flying, #cake_fadein, #light_candle, #wish_message, #story, #cake_cut {
+	display: none;
 }
 
-@-webkit-keyframes peach_alive {
-	0%{ background-color: #FFDAB9; }
-	25%{ background-color: #FFE4B5; }
-	50%{ background-color: #FFDAB9; }
-	75%{ background-color: #FFEFD5; }
-	100%{ background-color: #FFDAB9; }
+.peach {
+	background-color: #FFDAB9;
 }
+
+.peach-after {
+	animation: peach_alive linear 8s infinite;
+}
+
 @keyframes peach_alive {
 	0%{ background-color: #FFDAB9; }
 	25%{ background-color: #FFE4B5; }
@@ -42,8 +37,8 @@ body {
 	width: 50px;
 	height: 50px;
 	margin: auto;
-	background-repeat: no-repeat no-repeat;
-	background-position:center 0px;
+	background-repeat: no-repeat;
+	background-position: center 0px;
 	background-size: 50px 50px;
 }
 
@@ -51,39 +46,37 @@ body {
 	height: 70px;
 }
 
-/* Bulb Animations (Simplified for space) */
-.bulb-glow-yellow { background-image: url('bulb_yellow.png'); animation: bulb_glow_yellow linear 5s; }
-@keyframes bulb_glow_yellow { 0%{opacity: 0;} 100%{opacity: 1;} }
+.bulb-glow-yellow { background-image: url('bulb_yellow.png'); animation: bulb_glow 5s; }
+.bulb-glow-red { background-image: url('bulb_red.png'); animation: bulb_glow 5s; }
+.bulb-glow-blue { background-image: url('bulb_blue.png'); animation: bulb_glow 5s; }
+.bulb-glow-green { background-image: url('bulb_green.png'); animation: bulb_glow 5s; }
+.bulb-glow-pink { background-image: url('bulb_pink.png'); animation: bulb_glow 5s; }
+.bulb-glow-orange { background-image: url('bulb_orange.png'); animation: bulb_glow 5s; }
 
-.bulb-glow-red { background-image: url('bulb_red.png'); animation: bulb_glow_red linear 5s; }
-@keyframes bulb_glow_red { 0%{opacity: 0;} 100%{opacity: 1;} }
-
-.bulb-glow-blue { background-image: url('bulb_blue.png'); animation: bulb_glow_blue linear 5s; }
-@keyframes bulb_glow_blue { 0%{opacity: 0;} 100%{opacity: 1;} }
-
-.bulb-glow-green { background-image: url('bulb_green.png'); animation: bulb_glow_green linear 5s; }
-@keyframes bulb_glow_green { 0%{opacity: 0;} 100%{opacity: 1;} }
-
-.bulb-glow-pink { background-image: url('bulb_pink.png'); animation: bulb_glow_pink linear 5s; }
-@keyframes bulb_glow_pink { 0%{opacity: 0;} 100%{opacity: 1;} }
-
-.bulb-glow-orange { background-image: url('bulb_orange.png'); animation: bulb_glow_orange linear 5s; }
-@keyframes bulb_glow_orange { 0%{opacity: 0;} 100%{opacity: 1;} }
+@keyframes bulb_glow {
+	0%{ opacity: 0; }
+	100%{ opacity: 1; }
+}
 
 /* After Music Glows */
-.bulb-glow-yellow-after { animation: bulb_glow_yellow_after linear 1s infinite; }
-@keyframes bulb_glow_yellow_after { 0%{ opacity: 1; } 50%{ opacity: 0.5; } 100%{ opacity: 1; } }
+.bulb-glow-yellow-after { animation: bulb_glow_after 1s infinite; }
+@keyframes bulb_glow_after {
+	0%{ opacity: 1; }
+	50%{ opacity: 0.5; }
+	100%{ opacity: 1; }
+}
 
 audio { display: none; }
 
 .bannar {
 	max-width: 100%;
-	transform:translate(0px,-500px);
+	transform: translate(0px,-500px);
 }
+
 .bannar-come {
-	animation: bannar_come linear 6s;
-	transform:translate(0px,0px);
+	animation: bannar_come linear 6s forwards;
 }
+
 @keyframes bannar_come {
 	0%{ transform:translate(0px,-1000px); }
 	33%{ transform:translate(0px,0px) rotate(10deg); }
@@ -98,9 +91,10 @@ audio { display: none; }
 	z-index: 99;
 	width: 100px;
 	height: 183px;
-	background-repeat: no-repeat no-repeat;
+	background-repeat: no-repeat;
 	background-size: 100px 183px;
 }
+
 .balloons h2 {
 	text-transform: uppercase;
 	font-family: 'Signika', sans-serif;
@@ -109,6 +103,7 @@ audio { display: none; }
 	text-shadow: 5px 5px 5px #FFF;
 	display: none;
 }
+
 #b1 { background-image: url('b1.png'); }
 #b2 { background-image: url('b2.png'); }
 #b3 { background-image: url('b3.png'); }
@@ -117,9 +112,9 @@ audio { display: none; }
 #b6 { background-image: url('b6.png'); }
 #b7 { background-image: url('b7.png'); }
 
-.balloon-border{
+.balloon-border {
 	position: fixed;
-	top:100%;
+	top: 100%;
 	opacity: 0.5;
 	z-index: 9999;
 }
@@ -144,60 +139,45 @@ audio { display: none; }
 	font-weight: 700;
 	color: #fff;
 	background-color: #466baf;
-    margin: 5px;
+	margin: 5px;
 }
 
-/* =========================================
-   নতুন ছুরি এবং কেক কাটার কোড (নিচে যোগ করা হলো)
-   ========================================= */
-
+/* ছুরি এবং কাটিং ইফেক্ট */
 .knife {
-    position: absolute;
-    top: -150px; 
-    left: 50%;
-    width: 70px;
-    height: 15px;
-    background: linear-gradient(to bottom, #e0e0e0, #999);
-    border-radius: 2px;
-    border-right: 25px solid #333; /* ছুরির হাতল */
-    transform: rotate(45deg);
-    display: none;
-    z-index: 1000;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+	position: absolute;
+	top: -150px; 
+	left: 50%;
+	width: 70px;
+	height: 15px;
+	background: linear-gradient(to bottom, #e0e0e0, #999);
+	border-radius: 2px;
+	border-right: 25px solid #333;
+	transform: rotate(45deg);
+	display: none;
+	z-index: 1000;
 }
 
-/* ছুরি মুভ করার অ্যানিমেশন */
 .knife-move {
-    display: block !important;
-    animation: cut_the_cake 2.5s forwards;
+	display: block !important;
+	animation: cut_the_cake 2.5s forwards;
 }
 
 @keyframes cut_the_cake {
-    0% { top: -100px; transform: rotate(45deg) translateX(0); }
-    40% { top: 50px; transform: rotate(0deg) translateX(0); } /* কেকের ওপর আসা */
-    60% { top: 60px; transform: rotate(0deg) translateX(50px); } /* কেটে ডান দিকে যাওয়া */
-    100% { top: 200px; opacity: 0; transform: rotate(20deg); } /* নিচে গিয়ে ভ্যানিশ */
-}
-
-/* কেক স্লাইস হওয়ার ইফেক্ট */
-.cake-cut-active {
-    transition: all 0.5s ease;
+	0% { top: -100px; transform: rotate(45deg); }
+	40% { top: 50px; transform: rotate(0deg); }
+	60% { top: 60px; transform: rotate(0deg) translateX(50px); }
+	100% { top: 200px; opacity: 0; }
 }
 
 .cake-cut-active::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 100;
-    box-shadow: 0 0 10px #fff;
-    transform: translateX(-50%);
-}
-
-.cake-cut-active .bizcocho, 
-.cake-cut-active .cobertura {
-    box-shadow: inset 2px 0px 0px rgba(255,255,255,0.5);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 4px;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 100;
+	box-shadow: 0 0 10px #fff;
+	transform: translateX(-50%);
 }
