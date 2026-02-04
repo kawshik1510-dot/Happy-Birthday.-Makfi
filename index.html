@@ -3,7 +3,7 @@
 <head>
     <title>Happy Birthday Pakhi</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" href="loading.css">
@@ -15,24 +15,30 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #ffe4e1; z-index: 9999; display: flex;
             flex-direction: column; align-items: center; justify-content: center;
-            font-family: 'Signika', sans-serif; text-align: center; padding: 20px;
+            font-family: 'Signika', sans-serif; text-align: center;
         }
-        #timer { font-size: 30px; color: #ff69b4; margin: 20px 0; font-weight: bold; }
-        .pass-box { margin-top: 20px; }
-        .pass-box input { padding: 10px; border-radius: 5px; border: 1px solid #ffb6c1; outline: none; color: #333; }
-        .pass-box button { padding: 10px 20px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer; }
         #main-content { display: none; }
+        /* শুরুতে বাটনটি এবং গ্যালারি পুরোপুরি হাইড থাকবে */
+        #birthday_girl, #gallery { display: none; }
+        .gallery-wrapper {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 150px;
+            text-align: center;
+        }
+        #gallery img {
+            width: 250px; border-radius: 15px; border: 5px solid #fff; margin: 10px auto;
+        }
     </style>
 </head>
 
 <body>
     <div id="lock-screen">
         <h2 style="color: #d14d39;">Surprise Loading...</h2>
-        <div id="timer"></div>
-        <p>Please wait madam until the 17th of the month❤️</p>
-        <div class="pass-box">
-            <input type="password" id="password" placeholder="গোপন পাসওয়ার্ড দিন...">
-            <button onclick="checkPass()">Unlock</button>
+        <div id="timer" style="font-size: 30px; color: #ff69b4; font-weight: bold; margin: 20px 0;"></div>
+        <div style="margin-top: 20px;">
+            <input type="password" id="password" placeholder="Pass..." style="padding: 10px; border-radius: 5px; border: 1px solid #ffb6c1;">
+            <button onclick="checkPass()" style="padding: 10px 20px; background: #ff69b4; color: white; border: none; border-radius: 5px;">Unlock</button>
         </div>
     </div>
 
@@ -40,54 +46,22 @@
         <div class="loading"></div>
         <audio class="song" controls loop><source src="hbd.mp3"></source></audio>
 
-        <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">H</h2></div>
-        <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">B</h2></div>
-        <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">D</h2></div>
-        <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">J</h2></div>
-        <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">A</h2></div>
-        <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">A</h2></div>
-        <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">N</h2></div>
-
-        <img src="Balloon-Border.png" width="100%" class="balloon-border">
-
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center"><img src="banner.png" class="bannar"></div>
-            </div>
-
-            <div class="row cake-cover">
-                <div class="col-md-12 text-center">
-                    <div class="cake">
-                        <div class="velas"><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div></div>
-                        <div class="cobertura"></div><div class="bizcocho"></div>
-                    </div>
-                </div>
-            </div>
+            <div class="row"><div class="col-md-12 text-center"><img src="banner.png" class="bannar"></div></div>
+            <div class="row cake-cover"><div class="col-md-12 text-center"><div class="cake"><div class="velas"><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div></div><div class="cobertura"></div><div class="bizcocho"></div></div></div></div>
 
             <div class="row message">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <p>Happy 17th Birthday Jaan ❤️</p>
                     <p>It’s wild to think that this is your last year before the world starts calling you an adult.</p>
                     <p><strong>I love you a lot ❤️❤️</strong></p>
-                    <p>Happy Birthday Makfi!</p>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: 30px; margin-bottom: 120px;">
-                <button class="btn btn-primary" id="birthday_girl">Birthday Girl</button>
-                <div id="gallery" style="display:none; margin-top:30px;">
-                    <h3 style="color: #ef5350;">BIRTHDAY GIRL❤️</h3>
-                    <div style="max-width: 300px; margin: auto;">
-                        <img src="m1.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff;">
-                        <img src="m2.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m3.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m4.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m5.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m6.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m7.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m8.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m9.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
-                        <img src="m10.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+                    
+                    <div class="gallery-wrapper">
+                        <button class="btn btn-primary" id="birthday_girl">Birthday Girl</button>
+                        <div id="gallery">
+                            <h3 style="color: #ef5350;">BIRTHDAY GIRL❤️</h3>
+                            <img src="m1.jpg" class="mySlides"><img src="m2.jpg" class="mySlides" style="display:none;"><img src="m3.jpg" class="mySlides" style="display:none;"><img src="m4.jpg" class="mySlides" style="display:none;"><img src="m5.jpg" class="mySlides" style="display:none;"><img src="m6.jpg" class="mySlides" style="display:none;"><img src="m7.jpg" class="mySlides" style="display:none;"><img src="m8.jpg" class="mySlides" style="display:none;"><img src="m9.jpg" class="mySlides" style="display:none;"><img src="m10.jpg" class="mySlides" style="display:none;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,27 +89,20 @@
 
     <script>
         var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
-
-        function updateTimer() {
+        setInterval(function() {
             var now = new Date().getTime();
             var gap = countDate - now;
-            var second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-
-            var d = Math.floor(gap / day);
-            var h = Math.floor((gap % day) / hour);
-            var m = Math.floor((gap % hour) / minute);
-            var s = Math.floor((gap % minute) / second);
-
-            var timerElement = document.getElementById('timer');
-            if(timerElement) { timerElement.innerText = d + "d " + h + "h " + m + "m " + s + "s"; }
+            var d = Math.floor(gap / (1000 * 60 * 60 * 24));
+            var h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+            var s = Math.floor((gap % (1000 * 60)) / 1000);
+            document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
             if (gap < 0) { unlock(); }
-        }
-        setInterval(updateTimer, 1000);
+        }, 1000);
 
         function checkPass() {
-            var pass = document.getElementById('password').value;
-            if (pass === "makfisday") { unlock(); } 
-            else { alert("Nice try, ulta palta try kore labh nai pakhi"); }
+            if (document.getElementById('password').value === "makfisday") { unlock(); } 
+            else { alert("ভুল পাসওয়ার্ড!"); }
         }
 
         function unlock() {
@@ -143,21 +110,27 @@
             document.getElementById('main-content').style.display = 'block';
         }
 
-        $(document).ready(function(){
-            $('#birthday_girl').click(function(){
-                $(this).hide(); 
-                $('#gallery').show(); 
-                var slideIndex = 0;
-                function showSlides() {
-                    var slides = document.getElementsByClassName("mySlides");
-                    for (var i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-                    slideIndex++;
-                    if (slideIndex > slides.length) {slideIndex = 1}    
-                    slides[slideIndex-1].style.display = "block";  
-                    setTimeout(showSlides, 2500); 
-                }
-                showSlides();
-            });
+        // এনিমেশন শেষ হওয়ার পর বাটন দেখানোর লজিক
+        $('#story').click(function(){
+            // টাইপিং এনিমেশন বা লেটার শেষ হওয়ার জন্য ১০-১৫ সেকেন্ড সময় দিন (আপনার টেক্সট অনুযায়ী)
+            setTimeout(function(){
+                $('#birthday_girl').fadeIn(1000);
+            }, 25000); // এখানে ২৫০০০ মানে ২৫ সেকেন্ড, আপনার চিঠির দৈর্ঘ্য অনুযায়ী এটি কমাতে বা বাড়াতে পারেন
+        });
+
+        $('#birthday_girl').click(function(){
+            $(this).hide(); 
+            $('#gallery').show(); 
+            var slideIndex = 0;
+            function showSlides() {
+                var slides = document.getElementsByClassName("mySlides");
+                for (var i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                slides[slideIndex-1].style.display = "block";  
+                setTimeout(showSlides, 2500); 
+            }
+            showSlides();
         });
     </script>
 </body>
