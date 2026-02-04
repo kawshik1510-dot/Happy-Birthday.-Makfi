@@ -106,11 +106,6 @@ $('document').ready(function(){
 		$('.balloon-border').animate({top:-500},8000);
 		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
 		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b3').addClass('balloons-rotate-behaviour-two');
-		// $('#b4').addClass('balloons-rotate-behaviour-one');
-		// $('#b5').addClass('balloons-rotate-behaviour-one');
-		// $('#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b7').addClass('balloons-rotate-behaviour-one');
 		loopOne();
 		loopTwo();
 		loopThree();
@@ -179,6 +174,8 @@ $('document').ready(function(){
 			if(i==50){
 				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
 					$('.cake').fadeIn('fast');
+                    // লেটার শেষ হওয়ার পর নতুন বাটনটি এখানে দেখা যাবে
+                    $('#cake_cut').fadeIn('slow');
 				});
 				
 			}
@@ -187,15 +184,18 @@ $('document').ready(function(){
 			}			
 
 		});
-			// body...
 		}
 		
 		msgLoop(0);
 		
 	});
+
+    // আপনার নতুন কেক কাটার ফাংশন
+    $('#cake_cut').click(function(){
+        $('.bizcocho').addClass('cake-slice'); 
+        $('.fuego').fadeOut('slow'); // মোমবাতি নিভে যাবে
+        $(this).fadeOut('slow').promise().done(function() {
+            alert("Yay! You cut the cake! 🎂 Happy Birthday Jaan!");
+        });
+    });
 });
-
-
-
-
-//alert('hello');
