@@ -100,43 +100,52 @@
         // ১৭ ফেব্রুয়ারি ২০২৬ তারিখটি সেট করা
         var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
-        function updateTimer() {
-            var now = new Date().getTime();
-            var gap = countDate - now;
+     <script>
+    var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
-            var second = 1000;
-            var minute = second * 60;
-            var hour = minute * 60;
-            var day = hour * 24;
+    function updateTimer() {
+        var now = new Date().getTime();
+        var gap = countDate - now;
+        var second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
-            var d = Math.floor(gap / day);
-            var h = Math.floor((gap % day) / hour);
-            var m = Math.floor((gap % hour) / minute);
-            var s = Math.floor((gap % minute) / second);
+        var d = Math.floor(gap / day);
+        var h = Math.floor((gap % day) / hour);
+        var m = Math.floor((gap % hour) / minute);
+        var s = Math.floor((gap % minute) / second);
 
-            document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+        document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+        if (gap < 0) { unlock(); }
+    }
+    setInterval(updateTimer, 1000);
 
-            // সময় শেষ হলে অটোমেটিক আনলক
-            if (gap < 0) {
-                unlock();
+    function checkPass() {
+        var pass = document.getElementById('password').value;
+        if (pass === "makfisday") { unlock(); } 
+        else { alert("Nice try, ulta palta try kore labh nai pakhi"); }
+    }
+
+    function unlock() {
+        document.getElementById('lock-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }
+
+    // Birthday Girl বাটন কাজ করার কোড
+    $(document).ready(function(){
+        $('#birthday_girl').click(function(){
+            $(this).hide(); 
+            $('#gallery').show(); 
+            var slideIndex = 0;
+            function showSlides() {
+                var slides = document.getElementsByClassName("mySlides");
+                for (var i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                slides[slideIndex-1].style.display = "block";  
+                setTimeout(showSlides, 2500); 
             }
-        }
-
-        setInterval(updateTimer, 1000);
-
-        function checkPass() {
-            var pass = document.getElementById('password').value;
-            if (pass === "makfisday") {
-                unlock();
-            } else {
-                alert("Nice try,ulta palta try kore labh nai pakhi");
-            }
-        }
-
-        function unlock() {
-            document.getElementById('lock-screen').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }
-    </script>
+            showSlides();
+        });
+    });
+</script>
 </body>
 </html>
