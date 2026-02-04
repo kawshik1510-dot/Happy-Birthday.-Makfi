@@ -1,97 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Happy Birthday Pakhi</title>
+	<title>Happy Birthday Makfi</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="loading.css">
-	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet/less" href="cake.less">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+    <style>
+        /* লক স্ক্রিন ডিজাইন */
+        #lock-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffe4e1; z-index: 9999; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            font-family: 'Signika', sans-serif; text-align: center; padding: 20px;
+        }
+        #timer { font-size: 30px; color: #ff69b4; margin: 20px 0; font-weight: bold; }
+        .pass-box { margin-top: 20px; }
+        .pass-box input { padding: 10px; border-radius: 5px; border: 1px solid #ffb6c1; outline: none; }
+        .pass-box button { padding: 10px 20px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
 </head>
 
 <body>
-	<div class="loading"></div>
-	<audio class="song" controls loop>
-        <source src="hbd.mp3"></source>
-    </audio>
+    <div id="lock-screen">
+        <h2 style="color: #d14d39;">Surprise Loading...</h2>
+        <div id="timer"></div>
+        <p>অপেক্ষা করো ১৭ তারিখ পর্যন্ত! ❤️</p>
+        <div class="pass-box">
+            <input type="password" id="password" placeholder="গোপন পাসওয়ার্ড দিন...">
+            <button onclick="checkPass()">Unlock</button>
+        </div>
+    </div>
 
-    <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">H</h2></div>
-    <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">B</h2></div>
-    <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">D</h2></div>
-    <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">J</h2></div>
-    <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">A</h2></div>
-    <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">A</h2></div>
-    <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">N</h2></div>
+    <div id="main-content" style="display:none;">
+        <div class="loading"></div>
+        <audio class="song" controls loop><source src="hbd.mp3"></source></audio>
 
-    <img src="Balloon-Border.png" width="100%" class="balloon-border">
+        <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">H</h2></div>
+        <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">B</h2></div>
+        <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">D</h2></div>
+        <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">J</h2></div>
+        <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">A</h2></div>
+        <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">A</h2></div>
+        <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">N</h2></div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_yellow"></div></div>
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_red"></div></div>
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_blue"></div></div>
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_green"></div></div>
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_pink"></div></div>
-			<div class="col-md-2 col-xs-2 bulb-holder"><div class="bulb" id="bulb_orange"></div></div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<img src="banner.png" class="bannar">
-			</div>
-		</div>
-		<div class="row cake-cover">
-			<div class="col-md-12 text-center">
-				<div class="cake">
-				  <div class="velas">
-				    <div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div>
-				  </div>
-				  <div class="cobertura"></div><div class="bizcocho"></div>
-				</div>
-			</div>
-		</div>
+        <img src="Balloon-Border.png" width="100%" class="balloon-border">
 
-		<div class="row message">
-			<div class="col-md-12">
-				<p>Happy 17th Birthday Jaan ❤️</p>
-				<p>It’s wild to think that this is your last year</p>
-				<p>of being a "true" teenager</p>
-				<p>before the world starts calling you an adult.</p>
-				<p>But honestly? I hope you never lose</p>
-				<p>the way you see the world right now.</p>
-				<p>There are so many things I love about you,</p>
-				<p>it’s the way you make me laugh until my stomach hurts.</p>
-				<p>You have this amazing energy</p>
-				<p>that just makes everything better the second you show up.</p>
-				<p>Being 17 is about big dreams and even bigger memories,</p>
-				<p>and I feel so lucky that I get to be a part of yours.</p>
-				<p>I hope today is as incredible as you are.</p>
-				<p>Eat too much cake, take way too many photos,</p>
-				<p>and remember thatyou are my fav, always.</p>
-				<p><strong>I love you a lot ❤️❤️</strong></p>
-				<p>Happy Birthday Makfi!</p>
-			</div>
-		</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"><img src="banner.png" class="bannar"></div>
+            </div>
+            <div class="row cake-cover">
+                <div class="col-md-12 text-center">
+                    <div class="cake">
+                      <div class="velas"><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div></div>
+                      <div class="cobertura"></div><div class="bizcocho"></div>
+                    </div>
+                </div>
+            </div>
 
-		<div class="navbar navbar-fixed-bottom">
-			<div class="row">
-				<div class="col-md-6 text-center col-md-offset-3">
-					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-					<button class="btn btn-primary" id="play">Play Music</button>
-					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-					<button class="btn btn-primary" id="light_candle"> Light Candle</button>
-					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">A message for you</button>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="row message">
+                <div class="col-md-12">
+                    <p>Happy 17th Birthday Jaan ❤️</p>
+                    <p>It’s wild to think that this is your last year</p>
+                    <p>before the world starts calling you an adult.</p>
+                    <p>You have this amazing energy</p>
+                    <p>that makes everything better the second you show up.</p>
+                    <p><strong>I love you a lot ❤️❤️</strong></p>
+                    <p>Happy Birthday Makfi!</p>
+                </div>
+            </div>
+
+            <div class="navbar navbar-fixed-bottom">
+                <div class="row">
+                    <div class="col-md-6 text-center col-md-offset-3">
+                        <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+                        <button class="btn btn-primary" id="play">Play Music</button>
+                        <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+                        <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
+                        <button class="btn btn-primary" id="cake_fadein">Delicious Cake</button>
+                        <button class="btn btn-primary" id="light_candle">Light Candle</button>
+                        <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+                        <button class="btn btn-primary" id="story">A message for you</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="effect.js"></script>
+
+    <script>
+        // ১৭ ফেব্রুয়ারি ২০২৬ তারিখটি সেট করা
+        var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
+
+        function updateTimer() {
+            var now = new Date().getTime();
+            var gap = countDate - now;
+
+            var second = 1000;
+            var minute = second * 60;
+            var hour = minute * 60;
+            var day = hour * 24;
+
+            var d = Math.floor(gap / day);
+            var h = Math.floor((gap % day) / hour);
+            var m = Math.floor((gap % hour) / minute);
+            var s = Math.floor((gap % minute) / second);
+
+            document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+
+            // সময় শেষ হলে অটোমেটিক আনলক
+            if (gap < 0) {
+                unlock();
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+
+        function checkPass() {
+            var pass = document.getElementById('password').value;
+            if (pass === "makfisday") {
+                unlock();
+            } else {
+                alert("ভুল পাসওয়ার্ড! আবার চেষ্টা করো।");
+            }
+        }
+
+        function unlock() {
+            document.getElementById('lock-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+    </script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="effect.js"></script>
 </html>
