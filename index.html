@@ -100,12 +100,15 @@
         // ১৭ ফেব্রুয়ারি ২০২৬ তারিখটি সেট করা
         var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
-     <script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    // ১. টাইমার সেট করা (ফেব্রুয়ারি ১৭, ২০২৬)
     var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
     function updateTimer() {
         var now = new Date().getTime();
         var gap = countDate - now;
+
         var second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
         var d = Math.floor(gap / day);
@@ -113,31 +116,44 @@
         var m = Math.floor((gap % hour) / minute);
         var s = Math.floor((gap % minute) / second);
 
-        document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+        // স্ক্রিনে টাইমার দেখানোর জন্য
+        var timerElement = document.getElementById('timer');
+        if(timerElement) {
+            timerElement.innerText = d + "d " + h + "h " + m + "m " + s + "s";
+        }
+
         if (gap < 0) { unlock(); }
     }
     setInterval(updateTimer, 1000);
 
+    // ২. পাসওয়ার্ড চেক করার ফাংশন
     function checkPass() {
         var pass = document.getElementById('password').value;
-        if (pass === "makfisday") { unlock(); } 
-        else { alert("Nice try, ulta palta try kore labh nai pakhi"); }
+        if (pass === "makfisday") {
+            unlock();
+        } else {
+            alert("Nice try, ulta palta try kore labh nai pakhi");
+        }
     }
 
+    // ৩. আনলক ফাংশন
     function unlock() {
         document.getElementById('lock-screen').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
     }
 
-    // Birthday Girl বাটন কাজ করার কোড
+    // ৪. Birthday Girl বাটন এবং গ্যালারির কাজ
     $(document).ready(function(){
         $('#birthday_girl').click(function(){
             $(this).hide(); 
             $('#gallery').show(); 
+            
             var slideIndex = 0;
             function showSlides() {
                 var slides = document.getElementsByClassName("mySlides");
-                for (var i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
                 slideIndex++;
                 if (slideIndex > slides.length) {slideIndex = 1}    
                 slides[slideIndex-1].style.display = "block";  
@@ -147,5 +163,3 @@
         });
     });
 </script>
-</body>
-</html>
