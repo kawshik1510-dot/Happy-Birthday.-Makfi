@@ -22,8 +22,8 @@
         #birthday_girl, #gallery { display: none; }
         .gallery-wrapper {
             width: 100%;
-            margin-top: 30px;
-            margin-bottom: 150px;
+            margin-top: 20px;
+            margin-bottom: 150px; /* যাতে নেভিগেশন বারের ওপর না পড়ে */
             text-align: center;
         }
         #gallery img {
@@ -55,14 +55,23 @@
                     <p>Happy 17th Birthday Jaan ❤️</p>
                     <p>It’s wild to think that this is your last year before the world starts calling you an adult.</p>
                     <p><strong>I love you a lot ❤️❤️</strong></p>
-                    
-                    <div class="gallery-wrapper">
-                        <button class="btn btn-primary" id="birthday_girl">Birthday Girl</button>
-                        <div id="gallery">
-                            <h3 style="color: #ef5350;">BIRTHDAY GIRL❤️</h3>
-                            <img src="m1.jpg" class="mySlides"><img src="m2.jpg" class="mySlides" style="display:none;"><img src="m3.jpg" class="mySlides" style="display:none;"><img src="m4.jpg" class="mySlides" style="display:none;"><img src="m5.jpg" class="mySlides" style="display:none;"><img src="m6.jpg" class="mySlides" style="display:none;"><img src="m7.jpg" class="mySlides" style="display:none;"><img src="m8.jpg" class="mySlides" style="display:none;"><img src="m9.jpg" class="mySlides" style="display:none;"><img src="m10.jpg" class="mySlides" style="display:none;">
-                        </div>
-                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-wrapper">
+                <button class="btn btn-primary" id="birthday_girl">Birthday Girl</button>
+                <div id="gallery">
+                    <h3 style="color: #ef5350;">BIRTHDAY GIRL❤️</h3>
+                    <img src="m1.jpg" class="mySlides">
+                    <img src="m2.jpg" class="mySlides" style="display:none;">
+                    <img src="m3.jpg" class="mySlides" style="display:none;">
+                    <img src="m4.jpg" class="mySlides" style="display:none;">
+                    <img src="m5.jpg" class="mySlides" style="display:none;">
+                    <img src="m6.jpg" class="mySlides" style="display:none;">
+                    <img src="m7.jpg" class="mySlides" style="display:none;">
+                    <img src="m8.jpg" class="mySlides" style="display:none;">
+                    <img src="m9.jpg" class="mySlides" style="display:none;">
+                    <img src="m10.jpg" class="mySlides" style="display:none;">
                 </div>
             </div>
 
@@ -96,13 +105,15 @@
             var h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
             var s = Math.floor((gap % (1000 * 60)) / 1000);
-            document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+            if(document.getElementById('timer')) {
+                document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
+            }
             if (gap < 0) { unlock(); }
         }, 1000);
 
         function checkPass() {
             if (document.getElementById('password').value === "makfisday") { unlock(); } 
-            else { alert("ভুল পাসওয়ার্ড!"); }
+            else { alert("ভুল পাসওয়ার্ড!"); }
         }
 
         function unlock() {
@@ -110,17 +121,17 @@
             document.getElementById('main-content').style.display = 'block';
         }
 
-        // এনিমেশন শেষ হওয়ার পর বাটন দেখানোর লজিক
+        // Story বাটন ক্লিক করলে কি হবে
         $('#story').click(function(){
-            // টাইপিং এনিমেশন বা লেটার শেষ হওয়ার জন্য ১০-১৫ সেকেন্ড সময় দিন (আপনার টেক্সট অনুযায়ী)
+            // টাইপিং এনিমেশন বা লেটার শেষ হওয়ার জন্য সময় (২৫ সেকেন্ড দেওয়া আছে)
             setTimeout(function(){
-                $('#birthday_girl').fadeIn(1000);
-            }, 25000); // এখানে ২৫০০০ মানে ২৫ সেকেন্ড, আপনার চিঠির দৈর্ঘ্য অনুযায়ী এটি কমাতে বা বাড়াতে পারেন
+                $('#birthday_girl').fadeIn(1000); // চিঠি শেষ হলে বাটনটি ভেসে উঠবে
+            }, 25000); 
         });
 
         $('#birthday_girl').click(function(){
             $(this).hide(); 
-            $('#gallery').show(); 
+            $('#gallery').fadeIn(1000); 
             var slideIndex = 0;
             function showSlides() {
                 var slides = document.getElementsByClassName("mySlides");
