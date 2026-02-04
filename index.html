@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Happy Birthday Jaan</title>
+	<title>Happy Birthday Makfi</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -29,9 +29,9 @@
     <div id="lock-screen">
         <h2 style="color: #d14d39;">Surprise Loading...</h2>
         <div id="timer"></div>
-        <p>Please wait madam until the 17th of the month❤️</p>
+        <p>অপেক্ষা করো ১৭ তারিখ পর্যন্ত! ❤️</p>
         <div class="pass-box">
-            <input type="password" id="password" placeholder="গোপন পাসওয়ার্ড দিন...">
+            <input type="password" id="password" placeholder="গোপন পাসওয়ার্ড দিন...">
             <button onclick="checkPass()">Unlock</button>
         </div>
     </div>
@@ -57,11 +57,7 @@
             <div class="row cake-cover">
                 <div class="col-md-12 text-center">
                     <div class="cake">
-                      <div class="knife" id="knife"></div>
-                      
-                      <div class="velas">
-                        <div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div>
-                      </div>
+                      <div class="velas"><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div><div class="fuego"></div></div>
                       <div class="cobertura"></div><div class="bizcocho"></div>
                     </div>
                 </div>
@@ -90,7 +86,6 @@
                         <button class="btn btn-primary" id="light_candle">Light Candle</button>
                         <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
                         <button class="btn btn-primary" id="story">A message for you</button>
-                        <button class="btn btn-primary" id="cake_cut" style="display:none;">Let's Cut the Cake Now</button>
                     </div>
                 </div>
             </div>
@@ -102,6 +97,7 @@
     <script src="effect.js"></script>
 
     <script>
+        // ১৭ ফেব্রুয়ারি ২০২৬ তারিখটি সেট করা
         var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
         function updateTimer() {
@@ -120,7 +116,10 @@
 
             document.getElementById('timer').innerText = d + "d " + h + "h " + m + "m " + s + "s";
 
-            if (gap < 0) { unlock(); }
+            // সময় শেষ হলে অটোমেটিক আনলক
+            if (gap < 0) {
+                unlock();
+            }
         }
 
         setInterval(updateTimer, 1000);
@@ -130,7 +129,7 @@
             if (pass === "makfisday") {
                 unlock();
             } else {
-                alert("Nice Try,Ulta palta pass diye labh nai pakhi 😝");
+                alert("ভুল পাসওয়ার্ড! আবার চেষ্টা করো।");
             }
         }
 
