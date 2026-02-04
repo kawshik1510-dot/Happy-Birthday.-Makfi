@@ -179,6 +179,7 @@ $('document').ready(function(){
 			if(i==50){
 				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
 					$('.cake').fadeIn('fast');
+					$('#cake_cut').fadeIn('slow');
 				});
 				
 			}
@@ -195,7 +196,12 @@ $('document').ready(function(){
 	});
 });
 
-
+$('#cake_cut').click(function(){
+    $(this).fadeOut('slow'); // বাটনটি চলে যাবে
+    $('.cake').fadeOut('fast').fadeIn('fast', function(){
+        alert("Yay! The cake is cut! 🎂 Happy Birthday Makfi!");
+    });
+});
 
 
 //alert('hello');
