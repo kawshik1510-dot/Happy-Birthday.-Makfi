@@ -1,137 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Happy Birthday Makfi</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Happy Birthday Makfi</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<link rel="stylesheet" type="text/css" href="loading.css">
-<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
-<link rel="stylesheet/less" href="cake.less">
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="loading.css">
+	<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet" type="text/css">
+	<link rel="stylesheet/less" href="cake.less">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 
-<style>
-body{margin:0;padding:10px;overflow-x:hidden}
-*{max-width:100%;word-wrap:break-word}
-#main-content{padding-bottom:140px}
-.message p{text-align:center;font-size:16px}
-audio.song{width:100%}
+    <style>
+        /* লক স্ক্রিন */
+        #lock-screen {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffe4e1;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Signika', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
 
-#lock-screen{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:#ffe4e1;z-index:9999;
-display:flex;flex-direction:column;
-align-items:center;justify-content:center;
-text-align:center;padding:20px;
-font-family:'Signika',sans-serif;
-}
-#timer{font-size:30px;color:#ff69b4;font-weight:bold}
+        #timer {
+            font-size: 30px;
+            color: #ff69b4;
+            margin: 20px 0;
+            font-weight: bold;
+        }
 
-#gallery img{display:none;margin:auto}
+        .pass-box input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ffb6c1;
+            outline: none;
+            max-width: 100%;
+        }
 
-#final-screen{
-display:none;position:fixed;top:0;left:0;
-width:100%;height:100%;background:#ffe4e1;
-z-index:999999;
-display:flex;flex-direction:column;
-align-items:center;justify-content:center;
-text-align:center;font-family:'Signika',sans-serif;
-padding:20px;
-}
-</style>
+        /* 🔧 MOBILE FIX (only visibility fix) */
+        body {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        * {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .message p {
+            text-align: center;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        /* bottom navbar যেন লেখা ঢেকে না ফেলে */
+        #main-content {
+            padding-bottom: 120px;
+        }
+
+        @media (max-width: 768px) {
+            audio.song {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <div id="lock-screen">
-<h2 style="color:#d14d39;">Surprise Loading...</h2>
-<div id="timer"></div>
-<p>Please wait madam until the 17th of the month ❤️</p>
-<input type="password" id="password" placeholder="Secret Password">
-<button onclick="checkPass()">Unlock</button>
+    <h2 style="color:#d14d39;">Surprise Loading...</h2>
+    <div id="timer"></div>
+    <p>Please wait madam until the 17th of the month ❤️</p>
+    <div class="pass-box">
+        <input type="password" id="password" placeholder="Secret Password">
+        <button onclick="checkPass()">Unlock</button>
+    </div>
 </div>
 
 <div id="main-content" style="display:none;">
-<div class="loading"></div>
+    <div class="loading"></div>
 
-<audio class="song" controls loop>
-<source src="hbd.mp3">
-</audio>
+    <audio class="song" controls loop>
+        <source src="hbd.mp3">
+    </audio>
 
-<div class="balloons text-center" id="b1"><h2>H</h2></div>
-<div class="balloons text-center" id="b2"><h2>B</h2></div>
-<div class="balloons text-center" id="b3"><h2>D</h2></div>
-<div class="balloons text-center" id="b4"><h2>J</h2></div>
-<div class="balloons text-center" id="b5"><h2>A</h2></div>
-<div class="balloons text-center" id="b6"><h2>A</h2></div>
-<div class="balloons text-center" id="b7"><h2>N</h2></div>
+    <div class="balloons text-center" id="b1"><h2 style="color:#F2B300;">H</h2></div>
+    <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">B</h2></div>
+    <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">D</h2></div>
+    <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">J</h2></div>
+    <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">A</h2></div>
+    <div class="balloons text-center" id="b6"><h2 style="color:#99C96A;">A</h2></div>
+    <div class="balloons text-center" id="b7"><h2 style="color:#20CFB4;">N</h2></div>
 
-<img src="Balloon-Border.png" width="100%">
+    <img src="Balloon-Border.png" width="100%" class="balloon-border">
 
-<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="banner.png" class="bannar">
+            </div>
+        </div>
 
-<img src="banner.png" class="bannar">
+        <div class="row cake-cover">
+            <div class="col-md-12 text-center">
+                <div class="cake">
+                    <div class="velas">
+                        <div class="fuego"></div><div class="fuego"></div>
+                        <div class="fuego"></div><div class="fuego"></div>
+                        <div class="fuego"></div>
+                    </div>
+                    <div class="cobertura"></div>
+                    <div class="bizcocho"></div>
+                </div>
+            </div>
+        </div>
 
-<div class="cake-cover text-center">
-<div class="cake">
-<div class="velas">
-<div class="fuego"></div><div class="fuego"></div>
-<div class="fuego"></div><div class="fuego"></div>
-<div class="fuego"></div>
-</div>
-<div class="cobertura"></div>
-<div class="bizcocho"></div>
-</div>
-</div>
+        <div class="row message">
+            <div class="col-md-12">
+                <p>Happy 17th Birthday Jaan ❤️</p>
+                <p>It’s wild to think that this is your last year</p>
+                <p>before the world starts calling you an adult.</p>
+                <p>You have this amazing energy</p>
+                <p>that makes everything better the second you show up.</p>
+                <p><strong>I love you a lot ❤️❤️</strong></p>
+                <p>Happy Birthday Makfi!</p>
+            </div>
+        </div>
 
-<div class="row message">
-<div class="col-md-12">
-<p>Happy 17th Birthday Jaan ❤️</p>
-<p>It’s wild to think that this is your last year</p>
-<p>before the world starts calling you an adult.</p>
-<p>You have this amazing energy</p>
-<p>that makes everything better the second you show up.</p>
-<p><strong>I love you a lot ❤️❤️</strong></p>
-<p>Happy Birthday Makfi!</p>
-</div>
-</div>
-
-<!-- GALLERY -->
-<div id="gallery" style="display:none;text-align:center">
-<h3 style="color:#d14d39;">Some Memories ❤️</h3>
-<img class="mySlides" src="pic1.jpg">
-<img class="mySlides" src="pic2.jpg">
-<img class="mySlides" src="pic3.jpg">
-<img class="mySlides" src="pic4.jpg">
-<img class="mySlides" src="pic5.jpg">
-<img class="mySlides" src="pic6.jpg">
-<img class="mySlides" src="pic7.jpg">
-<img class="mySlides" src="pic8.jpg">
-<img class="mySlides" src="pic9.jpg">
-<img class="mySlides" src="pic10.jpg">
-</div>
-
-<div class="navbar navbar-fixed-bottom text-center">
-<button id="turn_on" class="btn btn-primary">Turn On Lights</button>
-<button id="play" class="btn btn-primary">Play Music</button>
-<button id="bannar_coming" class="btn btn-primary">Let's Decorate</button>
-<button id="balloons_flying" class="btn btn-primary">Fly With Balloons</button>
-<button id="cake_fadein" class="btn btn-primary">Delicious Cake</button>
-<button id="light_candle" class="btn btn-primary">Light Candle</button>
-<button id="wish_message" class="btn btn-primary">Happy Birthday</button>
-<button id="story" class="btn btn-primary">A message for you</button>
-<button id="cake_cut" class="btn btn-danger">Cut the Cake 🎂</button>
-</div>
-
-</div>
-</div>
-
-<!-- FINAL SCREEN -->
-<div id="final-screen">
-<h1 style="color:#d14d39;">I Love You Makfi ❤️</h1>
-<p>No matter how old you get,<br>You will always be my favourite person 🤍</p>
+        <div class="navbar navbar-fixed-bottom">
+            <div class="row">
+                <div class="col-md-6 text-center col-md-offset-3">
+                    <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+                    <button class="btn btn-primary" id="play">Play Music</button>
+                    <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+                    <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
+                    <button class="btn btn-primary" id="cake_fadein">Delicious Cake</button>
+                    <button class="btn btn-primary" id="light_candle">Light Candle</button>
+                    <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+                    <button class="btn btn-primary" id="story">A message for you</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -139,42 +162,40 @@ padding:20px;
 <script src="effect.js"></script>
 
 <script>
-var countDate=new Date('Feb 17, 2026').getTime();
-setInterval(function(){
-var now=new Date().getTime();
-var gap=countDate-now;
-if(gap<0){unlock();return;}
-var d=Math.floor(gap/(1000*60*60*24));
-document.getElementById("timer").innerText=d+" days left";
-},1000);
+var countDate = new Date('Feb 17, 2026 00:00:00').getTime();
 
-function checkPass(){
-if(document.getElementById("password").value==="makfisday")unlock();
-else alert("Nice try 😌");
-}
-function unlock(){
-document.getElementById("lock-screen").style.display="none";
-document.getElementById("main-content").style.display="block";
-}
+function updateTimer() {
+    var now = new Date().getTime();
+    var gap = countDate - now;
 
-var slideIndex=0;
-function startSlideshow(){
-var i;
-var slides=document.getElementsByClassName("mySlides");
-for(i=0;i<slides.length;i++){slides[i].style.display="none";}
-slideIndex++;
-if(slideIndex>slides.length){slideIndex=1;}
-slides[slideIndex-1].style.display="block";
-setTimeout(startSlideshow,2500);
+    if (gap < 0) {
+        unlock();
+        return;
+    }
+
+    var d = Math.floor(gap / (1000 * 60 * 60 * 24));
+    var h = Math.floor((gap / (1000 * 60 * 60)) % 24);
+    var m = Math.floor((gap / (1000 * 60)) % 60);
+    var s = Math.floor((gap / 1000) % 60);
+
+    document.getElementById("timer").innerText =
+        d + "d " + h + "h " + m + "m " + s + "s";
 }
 
-$('#cake_cut').click(function(){
-$('#gallery').fadeIn();
-startSlideshow();
-setTimeout(function(){
-$('#final-screen').fadeIn();
-},20000);
-});
+setInterval(updateTimer, 1000);
+
+function checkPass() {
+    if (document.getElementById("password").value === "makfisday") {
+        unlock();
+    } else {
+        alert("Nice try 😌 wait koren pakhi");
+    }
+}
+
+function unlock() {
+    document.getElementById("lock-screen").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+}
 </script>
 
 </body>
