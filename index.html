@@ -137,6 +137,45 @@
             document.getElementById('lock-screen').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
         }
+		<div style="text-align:center; margin-top: 50px;">
+    <button class="btn btn-primary" id="birthday_girl">Birthday Girl</button>
+</div>
+
+<div id="gallery" style="display:none; text-align:center; margin-top:30px;">
+    <h3 style="color: #ef5350;">Our Special Memories ❤️</h3>
+    <div style="max-width: 300px; margin: auto;">
+        <img src="m1.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff;">
+        <img src="m2.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m3.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m4.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m5.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m6.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m7.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m8.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m9.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+        <img src="m10.jpg" class="mySlides" style="width:100%; border-radius: 15px; border: 5px solid #fff; display:none;">
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#birthday_girl').click(function(){
+        $(this).hide(); 
+        $('#gallery').show(); 
+        
+        var slideIndex = 0;
+        function showSlides() {
+            var slides = document.getElementsByClassName("mySlides");
+            for (var i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 2500); 
+        }
+        showSlides();
+    });
+});
+</script>
     </script>
 </body>
 </html>
